@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<android.support.design.widget.AppBarLayout
+		android:id="@+id/appbar_container"
+		android:background="@null"
+		app:elevation="0dp"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+
+		<include
+			android:id="@+id/toolbar"
+			layout="@layout/toolbar_search_with_actions"
+			app:layout_scrollFlags="scroll|enterAlways|snap" />
+
+		<include
+			android:id="@+id/toolbar_query_container"
+			app:layout_scrollFlags="scroll|enterAlways|snap"
+			layout="@layout/toolbar_search_query" />
+
+		<include layout="@layout/toolbar_search_sort_filter"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/sort_filter_bar" />
+
+		<include
+			android:id="@+id/system_message_container"
+			layout="@layout/system_message_banner"
+			android:layout_height="wrap_content"
+			app:elevation="0dp"
+			android:layout_width="match_parent"
+			android:visibility="gone"
+			tools:visibility="visible" />
+
+	</android.support.design.widget.AppBarLayout>
+
+	<android.support.v4.widget.SwipeRefreshLayout
+		android:id="@+id/swipe_container"
+		app:layout_behavior="@string/appbar_scrolling_view_behavior"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+		<android.support.v7.widget.RecyclerView
+			android:id="@+id/grid_view"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent" />
+	</android.support.v4.widget.SwipeRefreshLayout>
+
+</android.support.design.widget.CoordinatorLayout>
